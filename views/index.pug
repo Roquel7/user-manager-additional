@@ -1,0 +1,25 @@
+html    
+    head
+        title= title
+    body
+        h1 Student Form
+
+        div
+            h2= subTitle
+            a(href="/studentList") Get New Student Info
+
+            form(action="/addingStudent", method="post")
+
+                label(for="full_name") Full Name 
+                input(type="text", id="fullName", name="full_name")
+
+                label(for="age") Age 
+                input(type="number", id="age", name="age")
+
+                label(for="email") Email 
+                input(type="email", id="email", name="email")
+
+                button Submit
+
+
+         

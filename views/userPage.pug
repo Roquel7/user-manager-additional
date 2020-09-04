@@ -1,0 +1,18 @@
+html
+    head
+        title Users
+
+    body
+        div
+            table(border=1)
+                each user in users
+                    td
+                        p= user.full_name
+                        p= user.age
+                        p= user.email
+                        form(action=`/removeUser/${user.id}`, method="post")
+                            button(type="submit") Delete
+                        form(action="/editUser", method="get")
+                            button(type="submit") Edit
+
+        a(href="/") Add Another Student
