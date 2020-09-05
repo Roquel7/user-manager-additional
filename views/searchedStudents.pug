@@ -1,0 +1,18 @@
+html
+    head
+        title= "Searched Students"
+    body
+        div
+            h2= "Results:"
+
+            table(border=2)
+                each user in users
+                    td
+                        p=`First Name: ${user.first_name}` 
+                        h3= `Last Name: ${user.last_name}` 
+                        p= `Age: ${user.age}` 
+                        p= `email: ${user.email}`
+            
+
+
+        a(href="/studentList") Back to Student List

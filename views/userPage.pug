@@ -3,16 +3,35 @@ html
         title Users
 
     body
+        h2= 'List of Students'
+
+        form(action=`/searchedStudent/`, method="post")
+            label(for="findLastName") Search Student By Last Name: 
+            input(type="text" id="searchName" name="findLastName")
+            button(type="submit") Search
+
+        h2= "Last Name Alphabetical Order"
+        form(action="/ascendingOrder", method="post")
+            button(type="submit") A-Z
+        form(action="/descendingOrder", method="post")
+            button(type="submit") Z-A
+
+
         div
+            h2= 'Students: '
             table(border=1)
                 each user in users
                     td
-                        p= user.full_name
-                        p= user.age
-                        p= user.email
+                        h3= `First Name: ${user.first_name}`
+                        h3= `Last Name: ${user.last_name}`
+                        p= `Age: ${user.age}`
+                        p= `Email: ${user.email}`
                         form(action=`/removeUser/${user.id}`, method="post")
-                            button(type="submit") Delete
-                        form(action="/editUser", method="get")
-                            button(type="submit") Edit
+                            button(type="submit") Delete Student
+                        a(href=`/editUser/${user.id}`)
+                            button Edit Student Info
+
 
         a(href="/") Add Another Student
+
+
